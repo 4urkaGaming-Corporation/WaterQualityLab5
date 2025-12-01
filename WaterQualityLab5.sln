@@ -1,0 +1,27 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterQualityApi", "WaterQualityApi\WaterQualityApi.csproj", "{C80A5C24-96CA-4630-9905-531399005573}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterQualityCodeGenerator", "WaterQualityCodeGenerator\WaterQualityCodeGenerator.csproj", "{15D9B9B4-783B-41DE-9C24-99659BA6D45C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C80A5C24-96CA-4630-9905-531399005573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C80A5C24-96CA-4630-9905-531399005573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C80A5C24-96CA-4630-9905-531399005573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C80A5C24-96CA-4630-9905-531399005573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15D9B9B4-783B-41DE-9C24-99659BA6D45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15D9B9B4-783B-41DE-9C24-99659BA6D45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15D9B9B4-783B-41DE-9C24-99659BA6D45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15D9B9B4-783B-41DE-9C24-99659BA6D45C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

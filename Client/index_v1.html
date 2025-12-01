@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <title>WaterQuality PR5 – стара версія (v1)</title>
+</head>
+<body>
+  <h1>Станції (старий інтерфейс, API v1)</h1>
+  <button id="loadStations">Завантажити станції</button>
+  <ul id="stations"></ul>
+
+  <script>
+    const apiBase = 'http://localhost:5000';
+
+    document.getElementById('loadStations').onclick = async () => {
+      const res = await fetch(`${apiBase}/api/v1/stations`);
+      const data = await res.json();
+      const ul = document.getElementById('stations');
+      ul.innerHTML = '';
+      data.forEach(st => {
+        const li = document.createElement('li');
+        li.textContent = `${st.id}. ${st.name} (${st.location})`;
+        ul.appendChild(li);
+      });
+    };
+  </script>
+</body>
+</html>

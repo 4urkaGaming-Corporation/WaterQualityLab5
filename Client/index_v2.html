@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <title>WaterQuality PR5 – нова версія (v2)</title>
+</head>
+<body>
+  <h1>Вимірювання (новий інтерфейс, API v2)</h1>
+
+  <label>
+    StationId:
+    <input type="number" id="stationId" />
+  </label>
+  <label>
+    Page:
+    <input type="number" id="page" value="1" />
+  </label>
+  <label>
+    PageSize:
+    <input type="number" id="pageSize" value="10" />
+  </label>
+  <button id="loadMeasurements">Завантажити</button>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Станція</th>
+        <th>Параметр</th>
+        <th>Одиниці</th>
+        <th>Час</th>
+        <th>Значення</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <script>
+    const apiBase = 'http://localhost:5000';
+
+    document.getElementById('loadMeasurements').onclick = async () => {
+      const stationId = document.getElementById('stationId').value;
+      const page = document.getElementById('page').value;
+      const pageSize = document.getElementById('pageSize').value;
+
+      const params = new URLSearchParams();
+      if (stationId) params.append('stationId', stationId);
+      params.append('page', page);
+      params.append('pageSize', pageSize);
+
+      const res = await fetch(`${apiBase}/api/v2/measurements?` + params.toString());
+      const data = await res.json();
+
+      const tbody = document.getElementById('tbody');
+      tbody.innerHTML = '';
+      data.forEach(m => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${m.stationName}</td>
+          <td>${m.parameterName}</td>
+          <td>${m.unit}</td>
+          <td>${m.measuredAt}</td>
+          <td>${m.value}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    };
+  </script>
+</body>
+</html>
